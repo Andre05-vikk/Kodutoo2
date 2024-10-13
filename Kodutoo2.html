@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Numbriarvamismäng</title>
+</head>
+<body>
+    <h1>Numbriarvamismäng</h1>
+    <p>Arva number vahemikus 1 kuni 10:</p>
+    <input type="number" id="userGuess" min="1" max="10">
+    <button onclick="checkGuess()">Arva</button>
+    <p id="feedback"></p>
+
+    <script>
+        let secretNumber = Math.floor(Math.random() * 10) + 1;
+
+        function checkGuess() {
+            const userGuess = document.getElementById('userGuess').value;
+            const feedback = document.getElementById('feedback');
+
+            if (userGuess == secretNumber) {
+                feedback.textContent = 'Õige! Sa arvasid numbri ära.';
+            } else if (userGuess < secretNumber) {
+                feedback.textContent = 'Suurem... Proovi uuesti!';
+            } else {
+                feedback.textContent = 'Väiksem... Proovi uuesti!';
+            }
+        }
+    </script>
+</body>
+</html>
